@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --shell-bg: #e8edf3;
+  --frame-edge: rgba(15, 23, 42, 0.06);
+  --surface: #ffffff;
+  --surface-muted: #f3f5f8;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --accent: #0d6e6e;
+  --accent-pressed: #0a5858;
+  --accent-soft: #e6f4f4;
+  color-scheme: light;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--shell-bg);
+  color: var(--text);
+  overscroll-behavior: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#root {
+  height: 100%;
+}
