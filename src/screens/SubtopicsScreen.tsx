@@ -2,7 +2,6 @@ import { BackButton } from '../components/BackButton'
 import { Bubble } from '../components/Bubble'
 import { ContinueButton } from '../components/ContinueButton'
 import { SearchAdd } from '../components/SearchAdd'
-import { useScrollFade } from '../hooks/useScrollFade'
 import './SubtopicsScreen.css'
 
 type SubtopicsScreenProps = {
@@ -30,15 +29,6 @@ export function SubtopicsScreen({
   )
 
   const allBubbles = [...options, ...customTopics]
-  const { ref, fadeTop, fadeBottom } = useScrollFade([allBubbles.length, title])
-
-  const wrapClass = [
-    'subtopics-screen__scroll',
-    fadeTop ? 'subtopics-screen__scroll--fade-top' : '',
-    fadeBottom ? 'subtopics-screen__scroll--fade-bottom' : '',
-  ]
-    .filter(Boolean)
-    .join(' ')
 
   return (
     <div className="screen subtopics-screen">
@@ -47,24 +37,21 @@ export function SubtopicsScreen({
         <h1 className="screen__title">{title}</h1>
       </div>
 
-      <div className={wrapClass}>
-        <div
-          ref={ref}
-          className="subtopics-screen__bubbles"
-          role="group"
-          aria-label="Topics of interest"
-        >
-          {allBubbles.map((topic) => (
-            <Bubble
-              key={topic}
-              label={topic}
-              selected={selected.some(
-                (item) => item.toLowerCase() === topic.toLowerCase(),
-              )}
-              onToggle={() => onToggle(topic)}
-            />
-          ))}
-        </div>
+      <div
+        className="subtopics-screen__bubbles"
+        role="group"
+        aria-label="Topics of interest"
+      >
+        {allBubbles.map((topic) => (
+          <Bubble
+            key={topic}
+            label={topic}
+            selected={selected.some(
+              (item) => item.toLowerCase() === topic.toLowerCase(),
+            )}
+            onToggle={() => onToggle(topic)}
+          />
+        ))}
       </div>
 
       <div className="screen__footer subtopics-screen__footer">
